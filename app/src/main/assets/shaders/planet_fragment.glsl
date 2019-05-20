@@ -14,7 +14,6 @@ precision mediump float;
 #endif
 
 const float fogScale=0.6;
-const float detailTextureMult = 50.0;
 const vec3 rcolor=vec3(0.0,1.0,0.0);
 const vec3 gcolor=vec3(0.27,0.21,0.13);//cliffs
 const vec3 bcolor=vec3(0.0,0.0,1.0);
@@ -177,11 +176,12 @@ void main()
     //outcolor =  vec4(diffspec,1.0);
 
     if((mode==7.0)){ //wireframe
-           wirecolor=mix(getWireColor(), diffspec.rgb, edgeFactor());
-           outcolor =  vec4(wirecolor,1.0);
+        wirecolor=mix(getWireColor(), diffspec.rgb, edgeFactor());
+        outcolor =  vec4(wirecolor,1.0);
     }
     else{ // no wireframe
-           outcolor =  vec4(diffspec,1.0);
+        outcolor =  vec4(diffspec,1.0);
+        //outcolor=vec4(lightDot*vec3(1.0,1.0,1.0),1.0);
     }
 
     fragColor =  outcolor;
