@@ -13,7 +13,6 @@
 *Fragment shaders don't have a default precision, it's mandatory to declare it
 */
 
-const int numberOfChunks = 50;
 const float _TransitionWidth = .03;
 const float _FresnelExponent = .1;
 const float atmoBorderWidth=1.9;
@@ -23,7 +22,7 @@ in vec3 a_barycentric;
 
 //basic uniforms
 uniform mat4 u_MVPMatrix;
-uniform mat4 u_MVMatrix;    		
+uniform mat4 u_MVMatrix;
 uniform vec3 u_LightPos; //Light position in eye space
 
 // terrain CDLOD
@@ -114,7 +113,7 @@ vec3 getNormal(vec2 uv) {
 	return normalize(nobj);
 }
 
-void main()                                                 	
+void main()
 {
     float radius=meshInfo.x * 0.5;
 	vec4 hmpos=vec4(0);
